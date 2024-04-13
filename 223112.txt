@@ -1,0 +1,37 @@
+git init -иницијализира локален репозиториум
+git remote add origin https://github.com/JanaStoichkova/SI_2024_lab1_223112 - го поврзуваш remote репозиториум со локалниот
+git add README.md-ја додаваш датотеката во локалниот репозиториум
+git commit -m "Initial commit"-прв commit
+git push origin master-ја синхронизираме master гранката со remote репозиториум
+git branch bug1-креираме нова гранка со име bug1
+git branch bug2-креираме нова гранка со име bug2
+git checkout bug1-се префрламе на гранката на bug1, го менуваме документот SILab1_1.java,го додаваме и правиме commit со соодветната порака
+git add .\SILab1_1.java
+git commit -m "Fix wrong condition in filterOddLengthStrings"
+git checkout bug2-се префрламе на гранката на bug2, го менуваме документот SILab1_2.java,го додаваме и правиме commit со соодветната порака
+git add .\SILab1_2.java
+git commit -m "Fix wrong condition in makeBigStringFrom"
+git checkout bug1-се префрламе на гранката на bug1, го менуваме документот SILab1Main.java,го додаваме и правиме commit со соодветната порака
+git add .\SILab1Main.java
+git commit -m "Call method filterOddLengthStrings in main class"
+git checkout bug2-се префрламе на гранката на bug2, го менуваме документот SILab1Main.java,го додаваме и правиме commit со соодветната порака
+git add .\SILab1Main.java
+git commit -m "Call method makeBigStringFrom in main class."
+git push origin bug1:bug1-ги синхронизираме гранките bug1 и bug2 со овие две команди
+git push origin bug2:bug2
+git checkout master-се префрламе на гранката master и ја спојуваме со гранката bug1
+git merge bug1
+git push origin master-повторно ја синхронизираме гранката master
+git checkout bug2-се префрламе на гранката bug2 и правиме  rebase со гранката master при кој се јавува конфликт
+git rebase master
+git add .\SILab1Main.java-ќе го разрешиме мануелно конфликтот и ќе го додаме сменетиот документ повторно
+git rebase --continue-ќе продолжиме со rebase
+git push origin master-повторно ги синхронизираме сите гранки
+git push origin bug1
+git push origin bug2 --force
+git checkout master
+git log >> logs.txt-ги ставаме логовите во документот
+git checkout bug1
+git log >> logs.txt
+git checkout bug2
+git log >> logs.txt
